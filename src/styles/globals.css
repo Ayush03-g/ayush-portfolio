@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './reset.css';
+@import './variables.css';
+@import './typography.css';
+@import './animations.css';
+@import './utilities.css';
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-background);
+}

@@ -1,0 +1,23 @@
+:root {
+  /* Colors */
+  --color-background: #000000;
+  --color-surface: #0a0a0a;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  
+  --color-primary: #ffffff;
+  --color-secondary: #a1a1aa;
+  --color-accent: #3b82f6;
+  
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  
+  --color-text: #f4f4f5;
+  --color-muted: #71717a;
+
+  /* Border Radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 1rem;
+}
