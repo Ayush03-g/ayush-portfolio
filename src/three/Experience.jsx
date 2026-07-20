@@ -1,6 +1,6 @@
 import { CanvasWrapper } from './CanvasWrapper';
 import { Renderer } from './Renderer';
-import { CameraController } from './CameraController';
+import { CameraRig } from './camera/CameraRig';
 import { Lighting } from './Lighting';
 import { Scene } from './Scene';
 
@@ -8,7 +8,7 @@ export function Experience() {
   return (
     <CanvasWrapper>
       <Renderer />
-      <CameraController />
+      <CameraRig />
       <Lighting />
       <Scene />
     </CanvasWrapper>
