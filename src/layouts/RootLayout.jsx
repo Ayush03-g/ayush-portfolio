@@ -1,5 +1,5 @@
 import { BootSequence } from '@/boot/BootSequence';
-import { MissionControl } from '@/hud/MissionControl';
+import { HeroOverlay } from '@/hero/HeroOverlay';
 
 export function RootLayout({ children }) {
   return (
@@ -12,7 +12,7 @@ export function RootLayout({ children }) {
       
       {/* HUD/UI Overlay Layer */}
       <div className="pointer-events-none absolute inset-0 z-content h-full w-full">
-        <MissionControl />
+        <HeroOverlay />
       </div>
 
       {/* Boot Sequence sits on top of everything */}

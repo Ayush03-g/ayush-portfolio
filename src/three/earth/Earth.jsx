@@ -1,9 +1,12 @@
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
+import { useTexture } from '@react-three/drei';
 import { EARTH_CONFIG } from './earthConfig';
 
 export function Earth() {
   const meshRef = useRef();
+  
+  const colorMap = useTexture('/assets/textures/earth/color.jpg');
 
   useFrame((state, delta) => {
     if (meshRef.current) {
@@ -11,15 +14,13 @@ export function Earth() {
     }
   });
 
-  // Using a stylized dark ocean color since we have no high-res textures.
-  // This creates a sleek, minimalistic cinematic globe.
   return (
     <mesh ref={meshRef} receiveShadow castShadow>
       <sphereGeometry args={[EARTH_CONFIG.radius, EARTH_CONFIG.segments, EARTH_CONFIG.segments]} />
       <meshStandardMaterial 
-        color={EARTH_CONFIG.colors.ocean}
-        roughness={0.2}
-        metalness={0.1}
+        map={colorMap}
+        roughness={EARTH_CONFIG.materials.roughness}
+        metalness={EARTH_CONFIG.materials.metalness}
       />
     </mesh>
   );

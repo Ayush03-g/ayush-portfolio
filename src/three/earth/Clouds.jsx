@@ -1,27 +1,27 @@
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
+import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import { EARTH_CONFIG } from './earthConfig';
 
 export function Clouds() {
   const meshRef = useRef();
+  const cloudsMap = useTexture('/assets/textures/earth/clouds.jpg');
 
   useFrame((state, delta) => {
     if (meshRef.current) {
-      // Clouds rotate slightly faster than the Earth for a parallax effect
       meshRef.current.rotation.y += EARTH_CONFIG.rotationSpeed * 1.2 * delta;
-      meshRef.current.rotation.z += EARTH_CONFIG.rotationSpeed * 0.1 * delta;
+      meshRef.current.rotation.z += EARTH_CONFIG.rotationSpeed * 0.05 * delta;
     }
   });
 
   return (
-    <mesh ref={meshRef} scale={1.01}>
+    <mesh ref={meshRef} scale={EARTH_CONFIG.materials.cloudScale}>
       <sphereGeometry args={[EARTH_CONFIG.radius, EARTH_CONFIG.segments, EARTH_CONFIG.segments]} />
       <meshStandardMaterial
-        color={EARTH_CONFIG.colors.clouds}
+        map={cloudsMap}
         transparent={true}
-        opacity={0.1}
-        roughness={1}
+        opacity={EARTH_CONFIG.materials.cloudOpacity}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
       />
